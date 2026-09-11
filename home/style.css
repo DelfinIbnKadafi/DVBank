@@ -1,0 +1,69 @@
+#userInfo {
+  position: relative;
+  width: 100%;
+  padding: 5px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0d6efd 0%, #0052cc 50%, #1a73e8 100%);
+  color: #ffffff;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  box-shadow: 0 6px 18px rgba(13, 110, 253, 0.2);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+#userInfo::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  right: -20%;
+  width: 120%;
+  height: 220%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 60%);
+  border-radius: 40%;
+  pointer-events: none;
+}
+
+#userInfo .user-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: -10px;
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap; 
+}
+
+#userInfo .full-name {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  color: #ffffff;
+}
+
+#userInfo .user-name {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+}
+
+#userInfo .balance-section {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+#userInfo .balance-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 2px;
+  font-weight: 400;
+}
+
+#userInfo .balance-amount {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
