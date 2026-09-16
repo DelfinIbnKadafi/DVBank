@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVBank — Transfer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  </head>
+  <body>
+    <header class="header">
+      <button id="back-button" type="button" aria-label="Kembali"><i class="fa-solid fa-arrow-left"></i></button>
+      <span class="header-title">Transfer</span>
+    </header>
+
+    <main class="page">
+      <form id="Transfer-Box">
+        <div class="form-header">
+          <div class="bank-icon"><img src="https://res.cloudinary.com/jpu75t3a/image/upload/f_auto,q_auto/1000242775" width="35" height="35" alt="Logo"></div>
+          <div>
+            <h1>Kirim Uang</h1>
+            <p>Transfer uang ke pengguna DVBank lain</p>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="username">Username penerima</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-user"></i>
+            <input type="text" id="username" name="username" placeholder="Masukkan username" autocomplete="off" required>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="amount">Jumlah uang</label>
+          <div class="input-wrapper amount-input">
+            <span class="currency">Rp</span>
+            <input type="text" id="amount" name="amount" inputmode="numeric" placeholder="50.000" autocomplete="off" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit"><span>Kirim Uang</span><i class="fa-solid fa-arrow-right"></i></button>
+        <p class="secure-text"><i class="fa-solid fa-shield-halved"></i> Transaksi diproses dengan aman</p>
+      </form>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

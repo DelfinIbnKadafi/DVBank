@@ -4,8 +4,6 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-
-
 # Get data
 @app.route("/request/getdata", methods=["POST"])
 def GetData():

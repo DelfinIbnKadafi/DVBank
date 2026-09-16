@@ -5,20 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DVBank - Home</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
-  <div id="userInfo">
-    <div class="user-header">
-      <h2 class="ful-name">Full Name</h2>
-      <span class="user-name">@username</span>
+  <main id="pageContent">
+    <div id="userInfo">
+      <div class="user-header">
+        <h2 class="ful-name">Full Name</h2>
+        <span class="user-name">@username</span>
+      </div>
+
+      <div class="balance-section">
+        <div class="balance-label">Saldo</div>
+        <div class="balance-amount">Rp 0</div>
+      </div>
     </div>
-  
-    <div class="balance-section">
-      <div class="balance-label">Saldo</div>
-      <div class="balance-amount">Rp 0</div>
+    <div id="Menu-Cepat">
+      <button id ="transfer" type="button">
+        <i class="fa-solid fa-wallet"></i>
+        <span>Transfer</span>
+      </button>
+      <button id ="top-up" type="button">
+        <i class="fa-solid fa-plus"></i>
+        <span>Top UP</span>
+      </button>
     </div>
-  </div>
-    
+  </main>
+
+  <footer id="bottomNav" class="bottom-nav">
+    <button id="navHome" class="nav-item active" type="button">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </button>
+
+    <button id="navPay" class="nav-item" type="button">
+      <i class="fa-solid fa-wallet"></i>
+      <span>Bayar</span>
+    </button>
+
+    <button id="navSettings" class="nav-item" type="button">
+      <i class="fa-solid fa-gear"></i>
+      <span>Pengaturan</span>
+    </button>
+  </footer>
+
   <script src="scripts/home.js"></script>
-</body>
 </html>
