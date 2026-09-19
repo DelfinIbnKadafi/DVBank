@@ -4,6 +4,8 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+# Transcation
+# changemoney
 def changemoney(user, amount):
   with open("data/account.json", "r") as f:
     data_json = json.load(f)
@@ -17,7 +19,7 @@ def changemoney(user, amount):
     except:
       return False
 
-# Transfer
+# transfer
 @app.route("/transfer", methods=["POST"])
 def transfer():
   data_send = request.get_json()
@@ -35,6 +37,9 @@ def transfer():
     else:
       return jsonify({"Status": "CANT_FIND_ACCOUNT"})
 
+
+############################################################################################
+
 # Get data
 @app.route("/request/getdata", methods=["POST"])
 def GetData():
@@ -51,6 +56,9 @@ def GetData():
     print("Succes Get Data")
     print("Full Name :", data["fullname"], "\nMoney :", data["money"])
     return jsonify(data)
+
+
+# Auth
 
 # register
 @app.route("/request/register", methods=["POST"])
@@ -116,6 +124,10 @@ def login():
       }
       print("Account is not exist!")
       return jsonify(reply)
+
+############################################################################################
+
+
 
 # start server
 if __name__ == "__main__":
