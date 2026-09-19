@@ -4,6 +4,37 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
+def changemoney(user, amount):
+  with open("data/account.json", "r") as f:
+    data_json = json.load(f)
+
+    try:
+      with open ("data/account.json", "w") as w:
+        data_json[user]["Money"] = amount
+        json.dump(data_json, w, indent=2)
+        print("Succes to change Money", user)
+        return True
+    except:
+      return False
+
+# Transfer
+@app.route("/transfer", methods=["POST"])
+def transfer():
+  data_send = request.get_json()
+
+  print("Request transfer from :", data_send["from"], "\nTo :", data_send["to"], "\nAmount :", data_send["amount"])
+
+  with open("data/account.json", "r") as f:
+    json_read = json.load(f)
+
+    if data_send["to"] in json_read:
+      print("Akun", data_send["to"], "ada di database, mengirim uang ke tujuan.")
+      changemoney(data_send["to"], json_read[data_send["to"]]["Money"] + data_send["amount"])
+      changemoney(data_send["from"], json_read[data_send["from"]]["Money"] - (data_send["amount"]))
+      return jsonify({"Status": "DONE"})
+    else:
+      return jsonify({"Status": "CANT_FIND_ACCOUNT"})
+
 # Get data
 @app.route("/request/getdata", methods=["POST"])
 def GetData():
@@ -48,7 +79,8 @@ def register():
           "Password": data_send["password"],
           "Full Name": data_send["fullname"],
           "Email": data_send["email"],
-          "Phone": data_send["phone"]
+          "Phone": data_send["phone"],
+          "Money": 0
         }
 
         json.dump(json_register, register_write, indent=2)
@@ -85,5 +117,6 @@ def login():
       print("Account is not exist!")
       return jsonify(reply)
 
+# start server
 if __name__ == "__main__":
   app.run(port=7777, debug=True)

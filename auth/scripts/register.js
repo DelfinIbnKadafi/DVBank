@@ -7,7 +7,7 @@ form.addEventListener("submit", async function(event) {
   const confirmPassword = document.getElementById("confirmPassword").value;
   
   if (password !== confirmPassword) {
-    alert("Kata sandi tidak cocok!");
+    NotifRegister("Kata sandi tidak cocok!");
     return;
   }
 
@@ -35,11 +35,11 @@ form.addEventListener("submit", async function(event) {
     const reply = await response.json();
 
     if(reply.Status === "USN_IS_EXIST") {
-      alert("Username sudah terdaftar!");
+      NotifRegister("Username sudah terdaftar!");
       return;
     }
     else if(reply.Status === "EMAIL_IS_EXIST") {
-      alert("Email sudah terdaftar!");
+      NotifRegister("Email sudah terdaftar!");
       return;
     }
     else if(reply.Status === "SUCCES_CREATE_ACCOUNT") {
@@ -53,7 +53,11 @@ form.addEventListener("submit", async function(event) {
     
   }
   catch (error) {
-    console.error('Cant acces server! :', error);
+    NotifRegister("Server sedang bermasalah!");
   }
   
 });
+
+function NotifRegister(text) {
+  document.querySelector(".Notif").textContent = text;
+}

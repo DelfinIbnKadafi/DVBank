@@ -86,7 +86,7 @@ function HomePage() {
       </button>
       <button id ="top-up" type="button">
         <i class="fa-solid fa-plus"></i>
-        <span>Transfer</span>
+        <span>Top Up</span>
       </button>
     </div>
   `;
@@ -106,10 +106,20 @@ function PayPage() {
 
 
 // Pengaturan
+function LogOutButton() {
+  localStorage.removeItem("Username");
+  localStorage.removeItem("Password");
+
+  window.location.href = "../index.html";
+}
+
 function SettingsPage() {
   pageContent.innerHTML =
   `
-    
+    <div class="SetLogOut">
+      <h3>Log out dari akun</h3>
+      <button type="button" onclick="LogOutButton()">Keluar</button>
+    </div>
   `;
   GetData();
 }

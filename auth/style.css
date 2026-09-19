@@ -105,3 +105,9 @@ body::after {
   background: rgba(59, 130, 246, 0.06);
   pointer-events: none;
 }
+
+.Notif {
+  color: hwb(0 9% 25%);
+  outline-color: black;
+  text-align: center;
+}

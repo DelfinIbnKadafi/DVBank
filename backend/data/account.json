@@ -1,15 +1,16 @@
 {
-  "Delfin": {
+  "delfin": {
     "Email": "delfin.ibnu.kadafi@gmail.com",
     "Full Name": "Delfin Ibn Kadafi",
-    "Money": 10000000,
+    "Money": 990000,
     "Password": "DELFIN1010",
     "Phone": "083114600963"
   },
   "sheyla": {
     "Email": "sheyla@gmail.com",
     "Full Name": "Sheyla",
-    "Password": "DELFIN1010KADAFI",
-    "Phone": "083114600963"
+    "Money": 10000,
+    "Password": "SHEYLA1010",
+    "Phone": "081289907645"
   }
 }

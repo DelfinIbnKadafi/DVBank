@@ -22,11 +22,11 @@ form.addEventListener("submit", async function(event) {
     const reply = await response.json();
 
     if(reply.Status === 'ACCOUNT_NOT_EXIST') {
-      alert("Tidak dapat menemukan akun!");
+      NotifLogin("Tidak dapat menemukan akun!");
       return;
     }
     else if(reply.Status === "PW_IS_WRONG") {
-      alert("Password salah!");
+      NotifLogin("Password salah!");
       return;
     }
     else if(reply.Status === "ALL_GOOD") {
@@ -39,6 +39,10 @@ form.addEventListener("submit", async function(event) {
     }
   }
   catch (error) {
-    console.error('Cant acces server! :', error);
+    NotifLogin("Server sedang bermasalah!");
   }
 });
+
+function NotifLogin(text) {
+  document.querySelector(".Notif").textContent = text;
+}

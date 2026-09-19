@@ -215,20 +215,6 @@ input[type="number"] {
   transform: translateX(3px);
 }
 
-.secure-text {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  margin: 18px 0 0;
-  color: #9ca3af;
-  font-size: 12px;
-}
-
-.secure-text i {
-  color: #22c55e;
-}
-
 @media (max-width: 480px) {
   .page {
     padding: 25px 14px;
@@ -246,4 +232,9 @@ input[type="number"] {
   .form-header h1 {
     font-size: 20px;
   }
+}
+
+.Notif {
+  text-align: center;
+  color: hwb(0 7% 12%);
 }

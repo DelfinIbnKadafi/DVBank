@@ -27,7 +27,7 @@ async function Login() {
     }
   }
   catch (error) {
-    console.error("Cant acces server! :", error);
+    Notif("Server sedang bermasalah!");
   }
 }
 
@@ -56,7 +56,7 @@ async function GetData(ahhh) {
     }
   }
   catch (error) {
-    console.error("Cant acces server! :", error);
+    Notif("Server sedang bermasalah!");
   }
 }
 
@@ -64,7 +64,7 @@ Login();
 
 const back = document.getElementById("back-button");
 back.addEventListener("click", function Back() {
-  window.location.href = "../home/home.html";
+  window.location.href = "../../home/home.html";
 });
 
 
@@ -82,14 +82,48 @@ const form = document.getElementById("Transfer-Box");
 form.addEventListener("submit", async function transfer(event) {
   event.preventDefault();
 
-  const username = tujuan.value;
+  const to = tujuan.value;
   const amount = parseInt(amountInput.value.replace(/\./g, ""), 10);
 
   console.log(username);
   console.log(amount);
 
+  if(to === username) {
+    Notif("Anda tidak bisa mengirim uang kediri anda sendiri!");
+    return;
+  }
+  
   if(await GetData(2) < amount) {
-    alert("Uang anda tidak cukup!");
+    Notif("Uang anda tidak cukup!");
+    return;
+  }
+
+  const data = {
+    from: username,
+    amount: amount,
+    to: to
+  };
+
+  const response = await fetch("http://localhost:7777/transfer", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  });
+
+  const reply = await response.json();
+
+  if(reply.Status === "CANT_FIND_ACCOUNT") {
+    Notif("Tidak menemukan akun tujuan!");
+    return;
+  }
+  else if(reply.Status === "DONE") {
+    window.location.href = "../../home/home.html";
     return;
   }
 });
+
+function Notif(text) {
+  document.querySelector(".Notif").textContent = text;
+}
